@@ -514,33 +514,40 @@ input_recherche.addEventListener("keyup",c => {
  console.log("okk < then 3");
  msg_not_found.textContent="Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.";
 
-//  let boxes = document.querySelectorAll(".box");
-//  boxes.forEach(element => {
-//  galeries.removeChild(element);
-//  }) 
+
 
 let text_en_input = c.target.value.toLowerCase();
     let boxess = document.querySelectorAll(".box");
     let result = 1;
-
    Array.from(boxess).forEach(box =>{
- if (text_en_input.search(box.childNodes[2].textContent.toLocaleLowerCase()) != -1){
+    //  console.log(box.childNodes[1].textContent.toLocaleLowerCase());
+
+ //  rechrerche sur le nom de recette
+ 
+
+ if (box.childNodes[2].textContent.toLocaleLowerCase().indexOf(text_en_input) != -1){
   msg_not_found.textContent=""
 
-console.log("yess");
-box.style.display= "grid"
-result = 1;
+ box.style.display= "grid"
+  }
+//  rechrerche en  description
+  else if (box.childNodes[4].textContent.toLocaleLowerCase().indexOf(text_en_input) != -1){
 
+  box.style.display= "grid";
+  
  }
- 
+//  rechrerche en  ingredients
+else if (box.childNodes[1].textContent.toLocaleLowerCase().indexOf(text_en_input) != -1){
+
+  box.style.display= "grid";
+  
+ }
+
  else {
   box.style.display= "none"
-console.log("non");
- 
+  
  
  }
-
-//  msg_not_found.textContent="Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.";
 
 
    })
