@@ -24,6 +24,15 @@ color: #D04F4F;
  font-weight: bold;
 
 }
+#critere {
+
+   margin-top: 5px;
+
+}
+.btn_top {
+  margin-top: 20px;
+
+}
 .form-control {
 
 background-color: #E7E7E7;
@@ -176,3 +185,11 @@ margin-left: 20px;
 text-align: center;
 
 }
+.dropdown-menu {
+  position: absolute !important;  inset: 0px auto auto 0px !important; margin: 0px !important; transform: translate(0px, 74px)!important;
+    }
+ #id_ingredient,#id_appareil,#id_ustensil {
+
+width: 20%;
+
+ }

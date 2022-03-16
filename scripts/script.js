@@ -515,15 +515,13 @@ input_recherche.addEventListener("keyup",c => {
  msg_not_found.textContent="Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.";
 
 
-
 let text_en_input = c.target.value.toLowerCase();
     let boxess = document.querySelectorAll(".box");
     let result = 1;
    Array.from(boxess).forEach(box =>{
-    //  console.log(box.childNodes[1].textContent.toLocaleLowerCase());
 
  //  rechrerche sur le nom de recette
- 
+
 
  if (box.childNodes[2].textContent.toLocaleLowerCase().indexOf(text_en_input) != -1){
   msg_not_found.textContent=""
@@ -573,23 +571,201 @@ else{
 }) 
 
 //  onclick change a input 
-let btn_ing = document.getElementById("btn_ingredient");
-let inpt_ing = document.querySelector(".tag-search-input");
-let inpt_search = document.createElement("input");
+// let btn_ing = document.getElementById("btn_ingredient");
+// let inpt_ing = document.querySelector(".tag-search-input");
+// let inpt_search = document.createElement("input");
 let id_ingredient = document.getElementById("id_ingredient");
+let grp_ingredient = document.querySelectorAll(".grp_ingredient");
+let grp_appareils = document.querySelectorAll(".grp_appareil");
+let grp_ustens = document.querySelectorAll(".grp_ustensile");
+
 
 
 window.addEventListener('click', function(e){   
   if (document.getElementById('btn_ingredient').contains(e.target)){
- 
-  } else{
-    console.log("no");
-      
+   console.log(grp_ingredient);
+    btn_ingredient.style.display="none"
+    inpt_ingr.style.display="block";
+    id_ingredient.style.width="550px"
+    inpt_ingr.focus();
+    let list_ingrr = [grp_ingredient[0].childNodes];
+    list_ingrr = list_ingrr[0] ; 
+    for (let x=1 ; x<list_ingrr.length;x++) {
+      list_ingrr[x].style.display="block";
 
- 
+    }
+    inpt_ingr.addEventListener("keyup", c => {
+      let text_inpt = inpt_ingr.value.toLocaleLowerCase();
+     if (text_inpt !="") {
+    
+      for (let x=1 ; x<list_ingrr.length;x++) {
+        console.log(list_ingrr[x].textContent);
+
+              if (list_ingrr[x].textContent.toLocaleLowerCase().indexOf(text_inpt) !=-1) {
+         
+                list_ingrr[x].style.display="block";
+        
+        }
+        else  {
+          list_ingrr[x].style.display="none";
+
+        }
+
+      }
+
+     }
+     else {
+      for (let x=1 ; x<list_ingrr.length;x++) {
+        list_ingrr[x].style.display="block";
+
+      }
+
+     }
+    
+    })
+
+  } 
+  
+else 
+{
+//   retourn the button et disparu la input text
+inpt_ingr.style.display="none";
+inpt_ingr.value="";
+btn_ingredient.style.display="block"
+id_ingredient.style.width="20%"
+
+}
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
+// filtrage de appareils a l'aide de recherche :
+
+if (document.getElementById('btn_appareil').contains(e.target)){ 
+btn_appareil.style.display="none"
+inpt_appr.style.display="block";
+id_appareil.style.width="550px"
+inpt_appr.focus();
+let list_appr = [grp_appareils[0].childNodes];
+list_appr = list_appr[0] ; 
+for (let x=1 ; x<list_appr.length;x++) {
+  list_appr[x].style.display="block";
+}
+inpt_appr.addEventListener("keyup", c => {
+  let text_inpt = inpt_appr.value.toLocaleLowerCase();
+ if (text_inpt !="") {
+
+  for (let x=1 ; x<list_appr.length;x++) {
+    console.log(list_appr[x].textContent);
+
+          if (list_appr[x].textContent.toLocaleLowerCase().indexOf(text_inpt) !=-1) {
+     
+            list_appr[x].style.display="block";
+    
+    }
+    else  {
+      list_appr[x].style.display="none";
+
+    }
 
   }
+
+ }
+ else {
+  for (let x=1 ; x<list_appr.length;x++) {
+    list_appr[x].style.display="block";
+
+  }
+
+ }
+
+})
+
+
+
+}
+else
+{
+//   retourn the button et disparu la input text
+inpt_appr.style.display="none";
+inpt_appr.value="";
+btn_appareil.style.display="block"
+id_appareil.style.width="20%"
+ 
+}
+// // // // // // // 
+// filtrage des ustensiles a l'aide de recherche :
+
+if (document.getElementById('btn_ustensil').contains(e.target)){ 
+  btn_ustensil.style.display="none"
+  inpt_ustensil.style.display="block";
+  id_ustensil.style.width="550px"
+  inpt_ustensil.focus();
+  let list_ust = [grp_ustens[0].childNodes];
+  list_ust = list_ust[0] ; 
+  for (let x=1 ; x<list_ust.length;x++) {
+    list_ust[x].style.display="block";
+  }
+  inpt_ustensil.addEventListener("keyup", c => {
+    let text_inpt = inpt_ustensil.value.toLocaleLowerCase();
+   if (text_inpt !="") {
+  
+    for (let x=1 ; x<list_ust.length;x++) {
+   
+            if (list_ust[x].textContent.toLocaleLowerCase().indexOf(text_inpt) !=-1) {
+       
+              list_ust[x].style.display="block";
+      
+      }
+      else  {
+        list_ust[x].style.display="none";
+  
+      }
+  
+    }
+  
+   }
+   else {
+    for (let x=1 ; x<list_ust.length;x++) {
+      list_ust[x].style.display="block";
+  
+    }
+  
+   }
+  
+  })
+  
+  
+  
+  }
+  else
+  {
+  //   retourn the button et disparu la input text
+  inpt_ustensil.style.display="none";
+  inpt_ustensil.value="";
+  btn_ustensil.style.display="block"
+  id_ustensil.style.width="20%"
+   
+  }
+  // // // // // // // 
+ 
+
 });
+
+// 
+ 
+
+
+
+
+
+
+
 
 
 

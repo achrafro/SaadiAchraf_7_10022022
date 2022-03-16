@@ -35,12 +35,19 @@
  <div class="lisst">
 <!-- ingredient -->
 <div class="btn-group" id="id_ingredient" >
-  <div type="button" id="btn_ingredient"  class="btn btn-primary btn-lg dropdown-toggle" data-bs-toggle="dropdown" >
+  <!-- <div type="button" id="btn_ingredient"  class="btn btn-primary btn-lg dropdown-toggle" data-bs-toggle="dropdown" >
     Ingrédients
-  </div>
+  </div> -->
+  <button type="button" id="btn_ingredient" class="btn btn-primary btn-lg dropdown-toggle" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Ingrédients
 
+  </button>
+  <input type="text" id="inpt_ingr" placeholder="Recherche un ingredient" style="display: none;" id="btn_ingredient" class="btn btn-primary btn-lg dropdown-toggle" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+
+  
   <div class="dropdown-menu grp_ingredient" id="grp_ingredient">
- 
+
   </div>
 
 
@@ -48,13 +55,14 @@
   <!-- fin ingredient -->
 
 <!-- appareil -->
-<div class="btn-group">
-  <div type="button" class="btn btn-success btn-lg dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
+<div class="btn-group" id="id_appareil">
+  <button type="button" id="btn_appareil" class="btn btn-success btn-lg dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
     Appareils
-  </div>
-  
+  </button>
+  <input type="text" id="inpt_appr" placeholder="Recherche un appareil" style="display: none;"  class="btn btn-success btn-lg dropdown-toggle" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
   <div class="dropdown-menu grp_appareil"  id="grp_appareils">
-    
+
   </div>
 
 
@@ -64,10 +72,12 @@
 
 <!-- fin appareil -->
 <!-- Ustensiles  -->
-<div class="btn-group">
-  <div type="button" id="btn_ingridient" class="btn btn-warning btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+<div class="btn-group" id="id_ustensil">
+  <button type="button" id="btn_ustensil" class="btn btn-warning btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     Ustensiles
-  </div>
+  </button>
+  <input type="text" placeholder="Recherche un Ustensile" id="inpt_ustensil" style="display: none;" class="btn btn-warning btn-lg dropdown-toggle" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
   <div class="dropdown-menu grp_ustensile" id="grp_ustensile"> 
     
   </div>
