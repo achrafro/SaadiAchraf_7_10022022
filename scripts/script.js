@@ -1,7 +1,7 @@
 async function getrecipes() {
  
      
-    const response = await fetch('https://achrafro.github.io/SaadiAchraf_7_10022022/assets/data/data.json');
+    const response = await fetch('/assets/data/data.json');
 
     const data = await response.json();
     
@@ -510,32 +510,40 @@ for (let m=0 ; m<=list_des_ustensiles_selectionne.length;m++) {
 // rechrerche a partir de bar de recherche : 
 input_recherche.addEventListener("keyup",c => {
 
+let patttern = /\s/ ;
+
   if(input_recherche.value.length >= 3) {
  console.log("okk < then 3");
  msg_not_found.textContent="Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.";
-
-
 let text_en_input = c.target.value.toLowerCase();
-    let boxess = document.querySelectorAll(".box");
-    let result = 1;
+      let boxess = document.querySelectorAll(".box");
+
+    if (patttern.test(text_en_input)) {
+
+      var newnew = text_en_input.replace(/\s/g,"");
+      console.log(newnew);
+
+    }
+
+
    Array.from(boxess).forEach(box =>{
 
  //  rechrerche sur le nom de recette
+ 
 
-
- if (box.childNodes[2].textContent.toLocaleLowerCase().indexOf(text_en_input) != -1){
+ if (box.childNodes[2].textContent.toLocaleLowerCase().search(newnew) != -1){
   msg_not_found.textContent=""
 
  box.style.display= "grid"
   }
 //  rechrerche en  description
-  else if (box.childNodes[4].textContent.toLocaleLowerCase().indexOf(text_en_input) != -1){
+  else if (box.childNodes[4].textContent.toLocaleLowerCase().search(newnew) != -1){
 
   box.style.display= "grid";
   
  }
 //  rechrerche en  ingredients
-else if (box.childNodes[1].textContent.toLocaleLowerCase().indexOf(text_en_input) != -1){
+else if (box.childNodes[1].textContent.toLocaleLowerCase().search(newnew) != -1){
 
   box.style.display= "grid";
   
