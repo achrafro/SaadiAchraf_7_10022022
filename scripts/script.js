@@ -1,7 +1,7 @@
 async function getrecipes() {
  
      
-    const response = await fetch('/assets/data/data.json');
+    const response = await fetch('https://achrafro.github.io/SaadiAchraf_7_10022022/assets/data/data.json');
 
     const data = await response.json();
     
