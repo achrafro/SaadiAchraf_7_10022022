@@ -509,47 +509,82 @@ for (let m=0 ; m<=list_des_ustensiles_selectionne.length;m++) {
 
 // rechrerche a partir de bar de recherche : 
 input_recherche.addEventListener("keyup",c => {
+  var patttern = /\s/ ;
+
 
   if(input_recherche.value.length >= 3) {
- console.log("okk < then 3");
- msg_not_found.textContent="Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.";
+  msg_not_found.textContent="Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.";
+var text_en_input = c.target.value.toLowerCase();
+      let boxess = document.querySelectorAll(".box");
 
+    if (patttern.test(text_en_input)) {
 
-let text_en_input = c.target.value.toLowerCase();
-    let boxess = document.querySelectorAll(".box");
-    let result = 1;
-   Array.from(boxess).forEach(box =>{
+      var newnew = text_en_input.replace(/\s/g,"");
+ 
+    }
 
- //  rechrerche sur le nom de recette
+    for (let a =0;a<=boxess.length-1 ;a++){
+      console.log(boxess[a].childNodes[2].textContent);
+    console.log(text_en_input);
+     if (boxess[a].childNodes[2].textContent.toLocaleLowerCase().search(text_en_input) != -1){
+      msg_not_found.textContent=""
+    
+      boxess[a].style.display= "grid"
+      }
+    //  rechrerche en  description
+      else if (boxess[a].childNodes[4].textContent.toLocaleLowerCase().search(text_en_input) != -1){
+    
+        boxess[a].style.display= "grid";
+      
+     }
+    //  rechrerche en  ingredients
+    else if (boxess[a].childNodes[1].textContent.toLocaleLowerCase().search(text_en_input) != -1){
+    
+      boxess[a].style.display= "grid";
+      
+     }
+    
+     else {
+      boxess[a].style.display= "none"
+      
+     
+     }
+    
+    }
 
+//    Array.from(boxess).forEach(box =>{
 
- if (box.childNodes[2].textContent.toLocaleLowerCase().indexOf(text_en_input) != -1){
-  msg_not_found.textContent=""
+//  //  rechrerche sur le nom de recette
+ 
 
- box.style.display= "grid"
-  }
-//  rechrerche en  description
-  else if (box.childNodes[4].textContent.toLocaleLowerCase().indexOf(text_en_input) != -1){
+//  if (box.childNodes[2].textContent.toLocaleLowerCase().search(newnew) != -1){
+//   msg_not_found.textContent=""
 
-  box.style.display= "grid";
+//  box.style.display= "grid"
+//   }
+// //  rechrerche en  description
+//   else if (box.childNodes[4].textContent.toLocaleLowerCase().search(newnew) != -1){
+
+//   box.style.display= "grid";
   
- }
-//  rechrerche en  ingredients
-else if (box.childNodes[1].textContent.toLocaleLowerCase().indexOf(text_en_input) != -1){
+//  }
+// //  rechrerche en  ingredients
+// else if (box.childNodes[1].textContent.toLocaleLowerCase().search(newnew) != -1){
 
-  box.style.display= "grid";
+//   box.style.display= "grid";
   
- }
+//  }
 
- else {
-  box.style.display= "none"
+//  else {
+//   box.style.display= "none"
   
  
- }
+//  }
 
 
-   })
-    
+//    })
+
+
 
 
 
