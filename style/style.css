@@ -114,8 +114,7 @@ margin-top: 25px;
  
  }
 .recette_name {
- 
-font-size: 19px;
+font-size: 15px;
 font-weight: bold;
 grid-area: recette_name;
 padding: 0 10px;
