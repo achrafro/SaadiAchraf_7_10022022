@@ -43,7 +43,8 @@ width: 90%;
 /* enable absolute positioning */
 .inner-addon {
     position: relative;
-    font-size: 25px;
+    font-size: 15px;
+
   }
   
   /* style glyph */
